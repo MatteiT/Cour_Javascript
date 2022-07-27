@@ -1,5 +1,13 @@
-function fullName(firstName, lastName) {
-  return firstName + lastName;
-}
+// function fullName(firstName, lastName) {
+//   let sentence = firstName + ' ' + lastName;
+//   return sentence.toUpperCase();
+// }
+let fName = fullName('tristan', 'mattei');
+console.log(fName);
+let fName2 = fullName('mattei', 'tristan');
+console.log(fName);
 
-console.log(fullName('tristan', 'mattei'));
+function fullName(person) {
+  let sentence = person.firstName + ' ' + person.lastName;
+  return sentence.toUpperCase();
+}

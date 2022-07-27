@@ -6,7 +6,7 @@ function addValues(num1, num2) {
 const firstValue = addValues(3, 4);
 const secondValue = addValues(12, 34);
 
-// expression d'une fonction (function expression)
+//! expression d'une fonction (function expression) ne peut être appeler avant de l'avoir déclarer
 const add = function (num1, num2) {
   return num1 + num2;
 };
