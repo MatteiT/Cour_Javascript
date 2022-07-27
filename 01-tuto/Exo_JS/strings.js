@@ -11,3 +11,5 @@ function fullName(person) {
   let sentence = person.firstName + ' ' + person.lastName;
   return sentence.toUpperCase();
 }
+
+console.log(fullName({ firstName: 'tristan', lastName: 'mattei' }));
