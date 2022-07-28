@@ -4,10 +4,9 @@ const btn = document.getElementById('btn');
 arrayColor = ['blue', 'red', 'yellow', 'green', 'pink'];
 
 function randomBgColor() {
-  const randomColor = arrayColor[Math.floor(Math.random() * arrayColor.length)];
+  const randomColor = '#' + Math.random().toString(16).slice(2, 8);
   document.body.style.backgroundColor = randomColor;
   p.textContent = randomColor;
 }
 
 btn.addEventListener('click', randomBgColor);
-//! c'est une référence à la function au dessus ! Pas un call !!!
