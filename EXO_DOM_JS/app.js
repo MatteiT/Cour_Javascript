@@ -10,5 +10,8 @@ function randomBgColor() {
 btn.addEventListener('click', randomBgColor);
 //! c'est une référence à la function au dessus ! Pas un call !!!
 
-const p = (document.getElementById('para').textContent =
-  'la couleur est' + randomColor);
+const p = document.getElementById('para');
+
+let text = createTextNode(`la couleur est ${randomColor}`);
+
+p.text;
