@@ -81,49 +81,56 @@ const menu = [
   },
 ];
 
-// ne pas faire rafraichir la page
 // function map pour afficher les repas
 // creer un set (pour chaque caétégorie un button .filter)
-// let htmlCode = ``;
-// recupere le textContent
+const container = document.querySelector('.btn-container')
+const center = document.querySelector('.section-center')
 
-const btns = document.querySelectorAll('.btn-container');
-
-btns.forEach(function (data) {
-  const btn = document.querySelector('.filter-btn');
-  btn.addEventListener('click', function () {
-    dataID = data.dataset.id;
-    return dataID;
+window.addEventListener('DOMContentLoaded', function(){
+  showCards(menu)
+  const categories = menu.reduce(function (values,item){
+    if(!values.includes(item.category)){
+      values.push(item.category)
+    }
+    return values
+  },['all'])
+  const categoriesBtn = categories.map(function(category){
+    return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`
+  }).join('')
+  container.innerHTML=categoriesBtn
+  const btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      category = e.currentTarget.dataset.id;
+      console.log(category);
+     const menuCategory = menu.filter(function (menuItem){
+      if(menuItem === category){
+        return menuItem
+        }
+     })
+     if(category === 'all'){showCards(menu)}
+     else{showCards(menuCategory)}
+    });
   });
-});
+})
 
-// menu.filter(function () {
-//   return menu.category;
-// });
 
-function showCards(cards) {
-  const cards = menu
-    .map(function (unMenu) {
+
+
+function showCards(menu) {
+const cards = menu.map(function (item) {
       return `
     <article class="menu-item">
-    <img src="${unMenu.img}" class="photo" alt="menu item">
+    <img src="${item.img}" class="photo" alt="menu item">
     <header>
-    <h4>Title: ${unMenu.title}</h4>
-    <h4 class="price">Price: ${unMenu.price}</h4>
+    <h4>Title: ${item.title}</h4>
+    <h4 class="price">Price: ${item.price}</h4>
     </header>
-    <p class="item-text">desc: ${unMenu.desc}</p>
+    <p class="item-text">desc: ${item.desc}</p>
     </article>
     `;
     })
     .join('');
+    center.innerHTML = cards;
 }
-console.log(cards);
 
-document.querySelector('.section-center').innerHTML = cards;
-
-const catMenu = menu.filter(function (menu) {
-  return menu.category;
-});
-console.log(catMenu);
-
-// const category = new Set(menu.category);
