@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendu</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <form name="f">
+      <center>
+        <h1>Hangman Game In Javascript (IT SOURCECODE)</h1>
+        <table bgcolor="red" border="1">
+          <tr>
+            <td colspan="4" align="RIGHT">
+              Score :
+              <input
+                type="TEXT"
+                name="score"
+                value="0"
+                onfocus="score.blur();"
+                size="2"
+              />
+              <br />
+              Fails (6):
+              <input
+                type="TEXT"
+                name="lives"
+                value="0"
+                onfocus="lives.blur();"
+                size="2"
+              />
+            </td>
+            <td colspan="7" align="CENTER">
+              <input
+                type="TEXT"
+                name="word"
+                value="    --- Hangman ---"
+                onfocus="word.blur();"
+                size="25"
+              />
+              <br />
+              <input
+                type="TEXT"
+                name="tried"
+                value="Click GO to get a word."
+                onfocus="tried.blur();"
+                size="25"
+              />
+            </td>
+            <td colspan="2" align="CENTER">
+              <input
+                type="BUTTON"
+                onclick="new_word(this.form);"
+                value=" GO "
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><input type="BUTTON" value=" A " onclick="seek('A');" /></td>
+            <td><input type="BUTTON" value=" B " onclick="seek('B');" /></td>
+            <td><input type="BUTTON" value=" C " onclick="seek('C');" /></td>
+            <td><input type="BUTTON" value=" D " onclick="seek('D');" /></td>
+            <td><input type="BUTTON" value=" E " onclick="seek('E');" /></td>
+            <td><input type="BUTTON" value=" F " onclick="seek('F');" /></td>
+            <td><input type="BUTTON" value=" G " onclick="seek('G');" /></td>
+            <td><input type="BUTTON" value=" H " onclick="seek('H');" /></td>
+            <td><input type="BUTTON" value=" I   " onclick="seek('I');" /></td>
+            <td><input type="BUTTON" value=" J  " onclick="seek('J');" /></td>
+            <td><input type="BUTTON" value=" K " onclick="seek('K');" /></td>
+            <td><input type="BUTTON" value=" L  " onclick="seek('L');" /></td>
+            <td><input type="BUTTON" value=" M " onclick="seek('M');" /></td>
+          </tr>
+          <tr>
+            <td><input type="BUTTON" value=" N " onclick="seek('N');" /></td>
+            <td><input type="BUTTON" value=" O " onclick="seek('O');" /></td>
+            <td><input type="BUTTON" value=" P " onclick="seek('P');" /></td>
+            <td><input type="BUTTON" value=" Q " onclick="seek('Q');" /></td>
+            <td><input type="BUTTON" value=" R " onclick="seek('R');" /></td>
+            <td><input type="BUTTON" value=" S " onclick="seek('S');" /></td>
+            <td><input type="BUTTON" value=" T " onclick="seek('T');" /></td>
+            <td><input type="BUTTON" value=" U " onclick="seek('U');" /></td>
+            <td><input type="BUTTON" value=" V " onclick="seek('V');" /></td>
+            <td><input type="BUTTON" value=" W " onclick="seek('W');" /></td>
+            <td><input type="BUTTON" value=" X  " onclick="seek('X');" /></td>
+            <td><input type="BUTTON" value=" Y " onclick="seek('Y');" /></td>
+            <td><input type="BUTTON" value=" Z  " onclick="seek('Z');" /></td>
+          </tr>
+        </table>
+      </center>
+    </form>
+  </body>
+</html>
