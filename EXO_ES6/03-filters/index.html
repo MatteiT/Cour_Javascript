@@ -6,7 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filtres</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js" defer></script>
+    <script src="./app.js" type="module" defer></script>
   </head>
-  <body></body>
+  <body>
+    <section class="products">
+      <div class="filters-container">
+        <form class="input-form">
+          <input type="text" class="search-input" placeholder="search..." />
+        </form>
+        <h5>Company</h5>
+        <article class="companies">
+          <button class="company-btn">tvaleurs temporaires</button>
+        </article>
+      </div>
+
+      <div class="products-container">
+        <article class="product">
+          <img src="./products.js" alt="" class="product-img img" />
+          <footer>
+            <h5 class="product-name">nom</h5>
+            <span class="product-price">prix</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+  </body>
 </html>
