@@ -1,3 +1,9 @@
+const form = document.querySelector('.form');
+const titleInput = document.querySelector('.title');
+const authorInput = document.querySelector('.author');
+const pagesInput = document.querySelector('.pages');
+const boxInput = document.querySelector('.read');
+
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -24,18 +30,48 @@ class Library {
   }
 
   displayBook() {
-    this.myLibrary.map(() => this);
+    this.myLibrary.map(() => console.log(this));
   }
 }
-
 const library = new Library();
-// console.log(library);
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  //* declarer les value
+  const title = form.title.value;
+  const author = form.author.value;
+  const pages = form.pages.value;
+  const isChecked = form.box.checked;
+
+  console.log(title, author, pages, isChecked);
+
+  // * regarder si les value sont vides ou non valide
+  if (!title || !author || !pages || !isChecked) {
+    // ! mettre un message d'erreur
+  } else {
+    // *instancier un nouveau livre et le placer dans la class Library
+    const book = new Book(title, author, pages, isChecked);
+    library.addBookToLibrary(book);
+    library.displayBook(library.book);
+  }
+
+  // *ajouter le livre dans le local storage
+  addToLocalStorage();
+});
 
 library.addBookToLibrary(book1);
-library.addBookToLibrary(book1);
-library.addBookToLibrary(book1);
-library.addBookToLibrary(book1);
 
-library.displayBook(library.book);
+// !local storage
+function getLocalStorage() {
+  return localStorage.getItem('list')
+    ? JSON.parse(localStorage.getItem('list'))
+    : [];
+}
 
-// console.log(library.myLibrary);
+function addToLocalStorage(title, author, pages, read) {
+  const book = { title, author, pages, read };
+  let items = getLocalStorage();
+
+  items.push(book);
+  localStorage.setItem('list', JSON.stringify(items));
+}

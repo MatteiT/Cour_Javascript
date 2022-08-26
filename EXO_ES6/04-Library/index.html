@@ -8,6 +8,41 @@
     <title>Document</title>
   </head>
   <body>
-    <button class="newBook"></button>
+    <h1>Formulaire Livre</h1>
+    <form class="form">
+      <div>
+        <input type="text" placeholder="le titre" class="title" name="title" />
+        <small></small>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="l'auteur"
+          class="author"
+          name="author"
+        />
+        <small></small>
+      </div>
+      <div>
+        <input
+          type="number"
+          placeholder="les pages"
+          class="pages"
+          name="pages"
+        />
+        <small></small>
+      </div>
+      <div>
+        <input type="checkbox" class="read" name="box" />
+        <label for="true">Lu</label>
+        <small></small>
+      </div>
+      <button class="newBook" type="submit">Ajouter</button>
+    </form>
+
+    <section class="display">
+      <div class="container"></div>
+    </section>
   </body>
 </html>
