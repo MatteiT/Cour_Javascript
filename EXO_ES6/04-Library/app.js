@@ -4,6 +4,7 @@ const authorInput = document.querySelector('.author');
 const pagesInput = document.querySelector('.pages');
 const boxInput = document.querySelector('.read');
 
+// ****** Les CLASSES **********
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -17,8 +18,6 @@ class Book {
 }
 
 const book1 = new Book('LOTR', 'Tolkien', 1500, true);
-
-console.log(book1.info());
 
 class Library {
   constructor(myLibrary) {
@@ -34,6 +33,8 @@ class Library {
   }
 }
 const library = new Library();
+
+// ****** LE FORM SUBMIT **********
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -61,17 +62,17 @@ form.addEventListener('submit', (e) => {
 
 library.addBookToLibrary(book1);
 
-// !local storage
-function getLocalStorage() {
-  return localStorage.getItem('list')
-    ? JSON.parse(localStorage.getItem('list'))
-    : [];
-}
-
+// ****** LE LOCAL STORAGE **********
 function addToLocalStorage(title, author, pages, read) {
   const book = { title, author, pages, read };
   let items = getLocalStorage();
 
   items.push(book);
   localStorage.setItem('list', JSON.stringify(items));
+}
+
+function getLocalStorage() {
+  return localStorage.getItem('list')
+    ? JSON.parse(localStorage.getItem('list'))
+    : [];
 }
