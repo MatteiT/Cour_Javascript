@@ -1,8 +1,18 @@
 import get from './getElement.js';
+import { hideLoading } from './toggleLoading.js';
 
-const displayDrinks = (drinks) => {
+const displayDrinks = async ({ drinks }) => {
   const section = get('.section-center');
-  let allDrinks = drinks
+  const title = get('.title');
+
+  if (!drinks) {
+    hideLoading();
+    title.textContent = 'sorry, no drinks matched your search';
+    section.innerHTML = null;
+    return;
+  }
+
+  const newDrinks = drinks
     .map((drink) => {
       const { idDrink: id, strDrink: name, strDrinkThumb: image } = drink;
 
@@ -14,6 +24,11 @@ const displayDrinks = (drinks) => {
         </a>`;
     })
     .join('');
-  section.innerHTML = allDrinks;
+
+  hideLoading();
+  section.innerHTML = newDrinks;
+
+  return section;
 };
+
 export default displayDrinks;
